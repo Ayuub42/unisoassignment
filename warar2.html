@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayuub News</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header img {
+      width: 50px;
+      vertical-align: middle;
+    }
+
+    header h1 {
+      display: inline-block;
+      margin: 0;
+      font-size: 2em;
+      vertical-align: middle;
+    }
+
+    nav {
+      background-color: #3498db;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1.2em;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .news-container {
+      padding: 20px;
+    }
+
+    .news-item {
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #fff;
+    }
+
+    .news-item h2 {
+      color: #2c3e50;
+      margin: 0 0 10px;
+    }
+
+    .news-item p {
+      margin: 0;
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .username {
+      font-weight: bold;
+      color: #3498db;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Ayuub News Logo">
+    <h1>Welcome to Ayuub News, <span class="username" id="usernameDisplay">[circuit]</span></h1>
+  </header>
+  <nav>
+    <a href="./somali-news.html">Somali News</a>
+    <a href="./arabic-news.html">Arabic News</a>
+    <a href="./english-news.html">English News</a>
+  </nav>
+  <div class="news-container">
+    <section id="somali-news">
+      <h2>Wararka Soomaalida</h2>
+      <div class="news-item">
+        <h2>Wararka Maanta</h2>
+        <p>War cusub oo ku saabsan xaaladda siyaasadda Soomaaliya.</p>
+      </div>
+      <div class="news-item">
+        <h2>Ganacsiga Soomaaliya</h2>
+        <p>Ganacsiga Soomaaliya ayaa kor u kacay sanadkan.</p>
+      </div>
+    </section>
+    <section id="arabic-news">
+      <h2>الأخبار العربية</h2>
+      <div class="news-item">
+        <h2>أخبار اليوم</h2>
+        <p>تطورات جديدة في العالم العربي.</p>
+      </div>
+    </section>
+    <section id="english-news">
+      <h2>English News</h2>
+      <div class="news-item">
+        <h2>Global Economy</h2>
+        <p>The global economy is showing signs of recovery.</p>
+      </div>
+      <div class="news-item">
+        <h2>Technology Trends</h2>
+        <p>New advancements in artificial intelligence are emerging.</p>
+      </div>
+    </section>
+  </div>
+  <footer>
+    &copy; 2023 Ayuub News. All rights reserved.
+  </footer>
+  <script>
+    // Ensure smooth scrolling works only for in-page links
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        if (this.getAttribute('href').startsWith('#')) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Extract the username from the URL query parameters
+    const params = new URLSearchParams(window.location.search);
+    const username = params.get('username');
+    if (username) {
+      document.getElementById('usernameDisplay').textContent = `[${username}]`;
+    }
+  </script>
+</body>
+</html>
